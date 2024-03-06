@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CrudController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function() {
     return view('welcome');
 });
+
+//FORMA 1 - Todo en 1
+Route::resource('/canciones', CrudController::class);
+
+//FORMA 2 - 1 a 1 método
+// Route::get('canciones', [CrudController::class, 'index']);
+// Route::get('canciones/create', [CrudController::class, 'create']);
